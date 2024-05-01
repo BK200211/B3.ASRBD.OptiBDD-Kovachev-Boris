@@ -11,6 +11,6 @@ export default async function handler(req, res) {
     res.status(200).json({ status: 200, data: comments });
   } catch (error) {
     console.error("Error fetching comments:", error);
-    res.status(500).json({ error: "ERREUR INTERNE!!!" });
+    res.status(500).json({ error: "Internal Server Error" });
   }
 }

@@ -1,6 +1,6 @@
-// Fichier 'api/movies/comment/[idComment].js'
+// pages/api/movie/comment/[idComment].js
 
-import clientPromise from "../../../../lib/mongodb";
+import clientPromise from "../../../lib/mongodb";
 import { ObjectId } from "mongodb";
 
 export default async function handler(req, res) {
@@ -16,10 +16,10 @@ export default async function handler(req, res) {
         break;
 
       case "POST":
-        const newComment = req.body;
-        const result = await db.collection("comments").insertOne(newComment);
-        const insertedComment = await db.collection("comments").findOne({ _id: result.insertedId });
-        res.status(201).json({ status: 201, data: insertedComment });
+        const bodyParams = req.body;
+        const result = await db.collection("comments").insertOne(bodyParams);
+        const newComment = await db.collection("comments").findOne({ _id: result.insertedId });
+        res.status(201).json({ status: 201, data: newComment });
         break;
 
       case "PUT":
@@ -35,7 +35,7 @@ export default async function handler(req, res) {
         break;
 
       default:
-        res.status(400).json({ status: 400, msg: "Méthode non trouvée" });
+        res.status(400).json({ status: 400, msg: "HTTP METHOD NOT FOUND" });
         break;
     }
   } catch (error) {

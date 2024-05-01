@@ -1,3 +1,5 @@
+// lib/mongodb.js
+
 import { MongoClient } from 'mongodb';
 
 const uri = process.env.MONGODB_URI;
@@ -15,11 +17,11 @@ export async function connectToDatabase() {
 
   try {
     await client.connect();
-    const db = client.db(); // You can specify database name here if needed
+    const db = client.db();
     cachedDb = db;
     return db;
   } catch (error) {
-    console.error('Failed to connect to MongoDB', error);
+    console.error('ERREUR Connexion à MongoDB!!!', error);
     throw error;
   }
 }
