@@ -22,26 +22,21 @@ Ce projet est une API basée sur Next.js pour gérer des films et leurs commenta
    ```bash
    git clone https://github.com/votre-nom/projet-api-films.git
 
-## Installation
-
-1. Cloner le repository :
+1. Installer les dépendances :
 
    ```bash
-   git clone https://github.com/votre-nom/projet-api-films.git
+   cd projet-api-films
+   npm install
 
-## Installation
-
-1. Cloner le repository :
-
-   ```bash
-   git clone https://github.com/votre-nom/projet-api-films.git
-
-## Installation
-
-1. Cloner le repository :
+1. Définir les variables d'environnement :Créez un fichier .env.local à la racine du projet et définissez les variables d'environnement suivantes :
 
    ```bash
-   git clone https://github.com/votre-nom/projet-api-films.git
+   MONGODB_URI=URL_DE_VOTRE_BASE_DE_DONNÉES_MONGODB
+
+1. Démarrer l'application en mode développement :
+
+   ```bash
+   npm run dev
 
 ## Documentation de l'API
 Pour consulter la documentation de l'API, rendez-vous sur http://localhost:3000/api/doc une fois l'application démarrée.
