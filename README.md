@@ -39,9 +39,6 @@ Ce projet est une API basée sur Next.js pour gérer des films et leurs commenta
    npm run dev
 
 ## Documentation de l'API
-   ```bash
-    npm run dev
-   ```
 Pour consulter la documentation de l'API, rendez-vous sur http://localhost:3000/api/doc une fois l'application démarrée.
 
 ## Problèmes Rencontrés
