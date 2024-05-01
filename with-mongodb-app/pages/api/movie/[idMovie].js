@@ -1,5 +1,4 @@
 // pages/api/movie/[idMovie].js
-import clientPromise from "../../lib/mongodb";
 import { ObjectId } from "mongodb";
 
 
