@@ -2,6 +2,7 @@
 
 import { withSwagger } from 'next-swagger-doc';
 
+// Configuration de la documentation Swagger pour l'API
 const swaggerHandler = withSwagger({
   openApiVersion: '3.0.0',
   title: 'Essaie',
@@ -9,7 +10,8 @@ const swaggerHandler = withSwagger({
   apiFolder: 'pages/api',
   components: {
     schemas: {
-      Movie: {
+      // Définition du schéma pour les 'Movies'
+      Movies: {
         type: 'object',
         properties: {
           title: { type: 'string' },
