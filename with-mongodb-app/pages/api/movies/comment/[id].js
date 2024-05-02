@@ -1,10 +1,11 @@
-// Fichier 'api/movies/comment/[idComment].js'
+// pages/api/movies/comment/[id].js
 
 import clientPromise from "../../../../lib/mongodb";
 import { ObjectId } from "mongodb";
 
 export default async function handler(req, res) {
-  const idComment = req.query.idComment;
+  const idComment = req.query.id;
+
   const client = await clientPromise;
   const db = client.db("sample_mflix");
 
@@ -18,15 +19,13 @@ export default async function handler(req, res) {
       case "POST":
         const newComment = req.body;
         const result = await db.collection("comments").insertOne(newComment);
-        const insertedComment = await db.collection("comments").findOne({ _id: result.insertedId });
-        res.status(201).json({ status: 201, data: insertedComment });
+        res.status(201).json({ status: 201, data: result.ops[0] });
         break;
 
       case "PUT":
         const updatedParams = req.body;
         await db.collection("comments").updateOne({ _id: new ObjectId(idComment) }, { $set: updatedParams });
-        const updatedComment = await db.collection("comments").findOne({ _id: new ObjectId(idComment) });
-        res.status(200).json({ status: 200, data: updatedComment });
+        res.status(200).json({ status: 200, msg: "Commentaire mis à jour!!!!" });
         break;
 
       case "DELETE":
